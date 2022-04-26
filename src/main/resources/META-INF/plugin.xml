@@ -1,0 +1,24 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.superbig.mvvm</id>
+    <name>MvvmQuickCreator</name>
+    <vendor>dianHua Huang</vendor>
+
+    <depends>org.jetbrains.android</depends>
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.superbig.mvvm.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.superbig.mvvm.services.MyProjectService"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.superbig.mvvm.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation = "com.superbig.mvvm.templates.SamplePluginTemplateProviderImpl"/>
+    </extensions>
+</idea-plugin>
