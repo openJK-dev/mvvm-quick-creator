@@ -3,6 +3,7 @@ package com.superbig.mvvm.templates
 import com.android.tools.idea.wizard.template.Template
 import com.android.tools.idea.wizard.template.WizardTemplateProvider
 import com.superbig.mvvm.templates.activities.emptyActivity.emptyMvvmActivityTemplate
+import com.superbig.mvvm.templates.activities.listActivity.listMvvmActivityTemplate
 
 /**
  * @author : DianHua huang
@@ -10,5 +11,6 @@ import com.superbig.mvvm.templates.activities.emptyActivity.emptyMvvmActivityTem
  * description :
  */
 class SamplePluginTemplateProviderImpl : WizardTemplateProvider() {
-    override fun getTemplates(): List<Template> = listOf(emptyMvvmActivityTemplate)
+    override fun getTemplates(): List<Template> = listOf(emptyMvvmActivityTemplate,
+        listMvvmActivityTemplate)
 }

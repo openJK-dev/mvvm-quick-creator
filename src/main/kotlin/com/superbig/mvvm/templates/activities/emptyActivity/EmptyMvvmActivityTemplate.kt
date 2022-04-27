@@ -13,8 +13,8 @@ import java.net.URL
  */
 val emptyMvvmActivityTemplate
     get() = template {
-        name = "DL MVVM Activity"
-        description = "快速创建一个基于 DigitalLottery 项目的 MVVM 页面（文件可以包括 Activity、Fragment、Adapter、ViewModel、xml）"
+        name = "DL Empty MVVM Activity"
+        description = "快速创建一个基于 DigitalLottery 项目的 MVVM 页面（文件包括 Activity、ViewModel、xml）"
         minApi = MIN_API
         category = Category.Other
         formFactor = FormFactor.Mobile
