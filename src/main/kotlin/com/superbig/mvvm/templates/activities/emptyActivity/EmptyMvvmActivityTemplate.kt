@@ -2,16 +2,19 @@ package com.superbig.mvvm.templates.activities.emptyActivity
 
 import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.MIN_API
+import java.io.File
+import java.net.URI
+import java.net.URL
 
 /**
  * @author : DianHua huang
  * date : 2022/4/13 17:55
- * description :
+ * description :空的 Activity 模板
  */
 val emptyMvvmActivityTemplate
     get() = template {
-        name = "Min MVVM Activity"
-        description = "快速创建一个最精简的 MVVM 页面（文件包括 Activity、ViewModel、xml）"
+        name = "DL MVVM Activity"
+        description = "快速创建一个基于 DigitalLottery 项目的 MVVM 页面（文件可以包括 Activity、Fragment、Adapter、ViewModel、xml）"
         minApi = MIN_API
         category = Category.Other
         formFactor = FormFactor.Mobile
@@ -43,7 +46,7 @@ val emptyMvvmActivityTemplate
         val mLayoutName = stringParameter {
             name = "XML 文件名称"
             constraints = listOf(Constraint.LAYOUT,Constraint.NONEMPTY)
-            suggest = { activityToLayout(mPageName.value.toLowerCase())}
+            suggest = {"activity_"+ camelCaseToUnderlines(mPageName.value)}
             default = "main"
         }
 

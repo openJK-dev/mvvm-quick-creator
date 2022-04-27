@@ -34,7 +34,7 @@ fun emptyMvvmActivity(
         
         @Override
         public void initViews() {
-        
+            setToolbarAsBack("",v->finish());
         }
         
         @Override

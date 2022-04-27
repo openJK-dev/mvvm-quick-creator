@@ -10,10 +10,27 @@ fun emptyMvvmViewModel(
     activityClass:String
 )="""package ${packageName};
     import android.app.Application;
+    
+    import androidx.lifecycle.Lifecycle;
+    import androidx.lifecycle.LifecycleOwner;
+    import androidx.lifecycle.OnLifecycleEvent;
+
     import com.ddyc.lotterytool.ui.base.BaseViewModel;
         
     public class ${activityClass}ViewModel extends BaseViewModel {
        public ${activityClass}ViewModel(Application application) {
           super(application);
        }
-    }"""
+    }
+    
+    @OnLifecycleEvent(value = Lifecycle.Event.ON_CREATE)
+    public void onCreate(LifecycleOwner owner){
+
+    }
+
+    @OnLifecycleEvent(value = Lifecycle.Event.ON_DESTROY)
+    public void onDestroy(LifecycleOwner owner){
+
+    }
+    
+    """

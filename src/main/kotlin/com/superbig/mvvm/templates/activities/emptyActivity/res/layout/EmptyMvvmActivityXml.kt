@@ -18,10 +18,12 @@ fun emptyMvvmActivityXml(
             type="${activityPackageName}.${activityClass}ViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar" android:id="@+id/toolbar"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>
 """
