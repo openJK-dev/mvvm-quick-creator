@@ -1,11 +1,11 @@
-package com.superbig.mvvm.templates.activities.emptyActivity.src.app_package
+package com.superbig.mvvm.templates.activities.fragmentActivity.src.app_package
 
 /**
  * @author : DianHua huang
  * date : 2022/4/13 17:57
  * description :
  */
-fun emptyMvvmViewModel(
+fun emptyMvvmFragmentActivityViewModel(
     packageName:String,
     activityClass:String
 )="""package ${packageName};
@@ -22,15 +22,14 @@ fun emptyMvvmViewModel(
           super(application);
        }
     
-        @OnLifecycleEvent(value = Lifecycle.Event.ON_CREATE)
-        public void onCreate(LifecycleOwner owner){
+       @OnLifecycleEvent(value = Lifecycle.Event.ON_CREATE)
+       public void onCreate(LifecycleOwner owner){
 
-        }
+       }
 
         @OnLifecycleEvent(value = Lifecycle.Event.ON_DESTROY)
         public void onDestroy(LifecycleOwner owner){
 
         }
     }
-    
     """
