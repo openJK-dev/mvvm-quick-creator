@@ -27,6 +27,7 @@ val listMvvmActivityTemplate
             name = "应用的包名"
             constraints = listOf(Constraint.NONEMPTY)
             default = "com.ddyc.lotterytool"
+            visible = {false}
         }
 
         val mPathPackageName = stringParameter {

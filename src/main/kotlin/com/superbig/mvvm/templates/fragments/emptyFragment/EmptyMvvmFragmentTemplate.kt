@@ -1,17 +1,18 @@
-package com.superbig.mvvm.templates.activities.emptyActivity
+package com.superbig.mvvm.templates.fragments.emptyFragment
 
 import com.android.tools.idea.wizard.template.*
 import com.android.tools.idea.wizard.template.impl.activities.common.MIN_API
 
 /**
  * @author : DianHua huang
- * date : 2022/4/13 17:55
- * description :空的 Activity 模板
+ * date : 2022/4/28 9:59
+ * description :
  */
-val emptyMvvmActivityTemplate
+
+val emptyMvvmFragmentTemplate
     get() = template {
-        name = "DL Empty MVVM Activity"
-        description = "快速创建一个基于 DigitalLottery 项目的 MVVM 页面（文件包括 Activity、ViewModel、xml）"
+        name = "DL Empty MVVM Fragment"
+        description = "快速创建一个基于 DigitalLottery 项目的 MVVM Fragment（文件包括 Fragment、ViewModel、xml）"
         minApi = MIN_API
         category = Category.Other
         formFactor = FormFactor.Mobile
@@ -26,17 +27,17 @@ val emptyMvvmActivityTemplate
             name = "应用的包名"
             constraints = listOf(Constraint.NONEMPTY)
             default = "com.ddyc.lotterytool"
-            visible = {false}
+            visible = { false }
         }
 
         val mPathPackageName = stringParameter {
-            name = "Activity 所在的包路径(例如：com.ddyc.lotterytool.module.login)"
+            name = "Fragment 所在的包路径(例如：com.ddyc.lotterytool.module.login)"
             constraints = listOf(Constraint.PACKAGE)
             default = "module"
         }
 
         val mPageName = stringParameter {
-            name = "Activity 名称"
+            name = "Fragment 名称"
             constraints = listOf(Constraint.UNIQUE, Constraint.NONEMPTY)
             default = "NewPage"
         }
@@ -44,7 +45,7 @@ val emptyMvvmActivityTemplate
         val mLayoutName = stringParameter {
             name = "XML 文件名称"
             constraints = listOf(Constraint.LAYOUT, Constraint.NONEMPTY)
-            suggest = { "activity_" + camelCaseToUnderlines(mPageName.value) }
+            suggest = { "fragment_" + camelCaseToUnderlines(mPageName.value) }
             default = "new_page"
         }
 
@@ -56,7 +57,7 @@ val emptyMvvmActivityTemplate
         )
 
         recipe = { data: TemplateData ->
-            emptyMvvmActivityRecipe(
+            emptyMvvmFragmentRecipe(
                 data as ModuleTemplateData,
                 mRootPackageName.value,
                 mPathPackageName.value,
