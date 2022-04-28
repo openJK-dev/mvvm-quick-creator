@@ -40,14 +40,14 @@ val emptyMvvmActivityTemplate
         val mPageName = stringParameter {
             name = "Activity 名称"
             constraints = listOf(Constraint.UNIQUE,Constraint.NONEMPTY)
-            default = "Main"
+            default = "NewPage"
         }
 
         val mLayoutName = stringParameter {
             name = "XML 文件名称"
             constraints = listOf(Constraint.LAYOUT,Constraint.NONEMPTY)
             suggest = {"activity_"+ camelCaseToUnderlines(mPageName.value)}
-            default = "main"
+            default = "new_page"
         }
 
         widgets(

@@ -38,14 +38,14 @@ val listMvvmActivityTemplate
         val mPageName = stringParameter {
             name = "Activity 名称"
             constraints = listOf(Constraint.UNIQUE, Constraint.NONEMPTY)
-            default = "Main"
+            default = "NewPage"
         }
 
         val mLayoutName = stringParameter {
             name = "XML 文件名称"
             constraints = listOf(Constraint.LAYOUT, Constraint.NONEMPTY)
             suggest = { "activity_" + camelCaseToUnderlines(mPageName.value) }
-            default = "main"
+            default = "new_page"
         }
 
         val mBeanName = stringParameter {
@@ -66,7 +66,7 @@ val listMvvmActivityTemplate
             name = "列表 Item XML 文件名称"
             constraints = listOf(Constraint.LAYOUT, Constraint.NONEMPTY)
             suggest = { "item_" + camelCaseToUnderlines(mPageName.value)+"_layout" }
-            default = "item_main"
+            default = "item_new_page"
         }
 
         widgets(
