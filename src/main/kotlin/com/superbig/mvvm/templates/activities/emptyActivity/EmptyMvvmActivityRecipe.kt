@@ -21,7 +21,7 @@ fun RecipeExecutor.emptyMvvmActivityRecipe(
     layoutName: String
 ) {
     val (projectData, srcOut, resOut) = moduleData
-    val ktOrJavaExt = projectData.language.extension
+    //val ktOrJavaExt = projectData.language.extension
     generateManifest(
         moduleData = moduleData,
         activityClass = "${activityClass}Activity",

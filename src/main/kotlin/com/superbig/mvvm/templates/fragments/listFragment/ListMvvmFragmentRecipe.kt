@@ -1,4 +1,4 @@
-package com.superbig.mvvm.templates.activities.listActivity
+package com.superbig.mvvm.templates.fragments.listFragment
 
 import com.android.tools.idea.wizard.template.ModuleTemplateData
 import com.android.tools.idea.wizard.template.RecipeExecutor
@@ -8,13 +8,19 @@ import com.superbig.mvvm.templates.activities.listActivity.res.layout.listMvvmIt
 import com.superbig.mvvm.templates.activities.listActivity.src.app_package.listMvvmActivity
 import com.superbig.mvvm.templates.activities.listActivity.src.app_package.listMvvmBean
 import com.superbig.mvvm.templates.activities.listActivity.src.app_package.listMvvmViewModel
+import com.superbig.mvvm.templates.fragments.listFragment.res.layout.listMvvmFragmentItemXml
+import com.superbig.mvvm.templates.fragments.listFragment.res.layout.listMvvmFragmentXml
+import com.superbig.mvvm.templates.fragments.listFragment.src.app_package.listFragmentMvvmBean
+import com.superbig.mvvm.templates.fragments.listFragment.src.app_package.listMvvmFragment
+import com.superbig.mvvm.templates.fragments.listFragment.src.app_package.listMvvmFragmentViewModel
 
 /**
  * @author : DianHua huang
- * date : 2022/4/27 14:21
+ * date : 2022/4/28 11:20
  * description :
  */
-fun RecipeExecutor.listMvvmActivityRecipe(
+
+fun RecipeExecutor.listMvvmFragmentRecipe(
     moduleData: ModuleTemplateData,
     rootPackageName: String,
     activityPathName: String,
@@ -26,15 +32,7 @@ fun RecipeExecutor.listMvvmActivityRecipe(
 ) {
     val (projectData, srcOut, resOut) = moduleData
     //val ktOrJavaExt = projectData.language.extension
-    generateManifest(
-        moduleData = moduleData,
-        activityClass = "${activityClass}Activity",
-        packageName = ".${activityPathName.replace("$rootPackageName.", "")}",
-        isLauncher = false,
-        hasNoActionBar = false,
-        generateActivityTitle = false
-    )
-    val listMvvmActivity = listMvvmActivity(
+    val listMvvmFragment = listMvvmFragment(
         rootPackageName,
         activityClass,
         layoutName,
@@ -43,18 +41,18 @@ fun RecipeExecutor.listMvvmActivityRecipe(
         beanName,
         itemLayoutName
     )
-    save(listMvvmActivity, srcOut.resolve("${activityClass}Activity.java"))
-    save(listMvvmBean(beanPackageName, beanName), srcOut.resolve("bean/${beanName}.java"))
+    save(listMvvmFragment, srcOut.resolve("${activityClass}Fragment.java"))
+    save(listFragmentMvvmBean(beanPackageName, beanName), srcOut.resolve("bean/${beanName}.java"))
     save(
-        listMvvmActivityXml(activityPathName, activityClass),
+        listMvvmFragmentXml(activityPathName, activityClass),
         resOut.resolve("layout/${layoutName}.xml")
     )
     save(
-        listMvvmItemXml(activityPathName, activityClass, beanName, beanPackageName),
+        listMvvmFragmentItemXml(activityPathName, activityClass, beanName, beanPackageName),
         resOut.resolve("layout/${itemLayoutName}.xml")
     )
     save(
-        listMvvmViewModel(activityPathName, activityClass, beanPackageName, beanName),
+        listMvvmFragmentViewModel(activityPathName, activityClass, beanPackageName, beanName),
         srcOut.resolve("${activityClass}ViewModel.java")
     )
 }

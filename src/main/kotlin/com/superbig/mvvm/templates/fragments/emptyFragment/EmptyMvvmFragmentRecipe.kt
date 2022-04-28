@@ -19,7 +19,7 @@ fun RecipeExecutor.emptyMvvmFragmentRecipe(
     layoutName: String
 ) {
     val (projectData, srcOut, resOut) = moduleData
-    val ktOrJavaExt = projectData.language.extension
+    //val ktOrJavaExt = projectData.language.extension
     projectData.applicationPackage
     val emptyMvvmFragment = emptyMvvmFragment(
         rootPackageName,

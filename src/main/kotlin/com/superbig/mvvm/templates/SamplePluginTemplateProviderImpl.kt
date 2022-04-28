@@ -5,6 +5,7 @@ import com.android.tools.idea.wizard.template.WizardTemplateProvider
 import com.superbig.mvvm.templates.activities.emptyActivity.emptyMvvmActivityTemplate
 import com.superbig.mvvm.templates.activities.listActivity.listMvvmActivityTemplate
 import com.superbig.mvvm.templates.fragments.emptyFragment.emptyMvvmFragmentTemplate
+import com.superbig.mvvm.templates.fragments.listFragment.listMvvmFragmentTemplate
 
 /**
  * @author : DianHua huang
@@ -16,6 +17,7 @@ class SamplePluginTemplateProviderImpl : WizardTemplateProvider() {
         listOf(
             emptyMvvmActivityTemplate,
             listMvvmActivityTemplate,
-            emptyMvvmFragmentTemplate
+            emptyMvvmFragmentTemplate,
+            listMvvmFragmentTemplate
         )
 }
