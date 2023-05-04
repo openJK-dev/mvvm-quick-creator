@@ -27,8 +27,8 @@ val emptyMvvmActivityTemplate
             constraints = listOf(Constraint.NONEMPTY)
             default = "com.ddyc.lotterytool"
             visible = {false}
+            help = "填写应用包名称"
         }
-
         val mPathPackageName = stringParameter {
             name = "Activity 所在的包路径(例如：com.ddyc.lotterytool.module.login)"
             constraints = listOf(Constraint.PACKAGE)
@@ -40,21 +40,18 @@ val emptyMvvmActivityTemplate
             constraints = listOf(Constraint.UNIQUE, Constraint.NONEMPTY)
             default = "NewPage"
         }
-
         val mLayoutName = stringParameter {
             name = "XML 文件名称"
             constraints = listOf(Constraint.LAYOUT, Constraint.NONEMPTY)
             suggest = { "activity_" + camelCaseToUnderlines(mPageName.value) }
             default = "new_page"
         }
-
         widgets(
             TextFieldWidget(mRootPackageName),
             PackageNameWidget(mPathPackageName),
             TextFieldWidget(mPageName),
             TextFieldWidget(mLayoutName)
         )
-
         recipe = { data: TemplateData ->
             emptyMvvmActivityRecipe(
                 data as ModuleTemplateData,
